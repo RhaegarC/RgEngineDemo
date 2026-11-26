@@ -34,3 +34,7 @@ The repository currently contains a minimal .NET 10 console scaffold at `src/Eng
 ## External protocol reference
 
 The engine should follow the UCI protocol conventions documented at [UCI protocol](https://backscattering.de/chess/uci/). This project’s supported command set and development priorities are described in [uci-protocol.md](docs/uci-protocol.md).
+
+## Copilot agent resources
+
+Repository instructions, custom agents, testing guidance, and reusable skills are maintained under `.github/`. See [Copilot agent customizations](docs/agent-customizations.md) for the resource map and usage.
