@@ -43,7 +43,7 @@ Implement in numeric order. Each feature is independently testable and should be
 | Feature | Scope | Depends on | Status |
 |---|---|---|---|
 | [01 — Solution and Core test foundation](archive/01-solution-and-core-test-foundation.md) | Create the solution and the Core, UCI-host, and Core-test projects under `src/`. | None | Archived |
-| [02 — Square and coordinate notation](02-square-and-coordinate-notation.md) | Add the 64-square type, indexing contract, and coordinate conversion. | 01 | Complete |
+| [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md) | Add the 64-square type, indexing contract, and coordinate conversion. | 01 | Archived |
 | [03 — Piece and color model](03-piece-and-color-model.md) | Add typed colors/pieces and a reversible FEN-symbol mapping. | 01 | Planned |
 | [04 — Bitboard operations](04-bitboard-operations.md) | Add safe, tested bitboard membership and iteration helpers. | 01, 02 | Planned |
 | [05 — Position state and validation](05-position-state-and-validation.md) | Store position metadata and piece masks; validate invariants and derive occupancy. | 02, 03, 04 | Planned |
