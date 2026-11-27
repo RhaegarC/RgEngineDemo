@@ -1,6 +1,6 @@
 # Feature 13 — Pseudo-legal move generation
 
-**Status:** In progress
+**Status:** Archived
 
 **Depends on:** [Feature 10 — Attack generation](../archive/sprint-02/10-attack-generation.md), [Feature 11 — Move and undo-state model](../archive/sprint-02/11-move-and-undo-state.md), [Feature 12 — Ordinary move application](../archive/sprint-02/12-ordinary-move-application.md)
 
