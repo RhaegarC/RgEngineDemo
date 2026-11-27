@@ -83,7 +83,7 @@ Never use an unrepeatable GUI impression as a performance claim. Never loosen pe
 
 ## Developer workflow
 
-The exact command names depend on the solution structure selected in Milestone 0. Keep the eventual README/index commands aligned with the actual `.sln`/project names. At minimum, document:
+The exact command names depend on the solution structure selected in Milestone 0. Keep the eventual README/index commands aligned with the actual `.slnx`/project names. At minimum, document:
 
 - A clean solution build.
 - The full test suite and a focused perft/UCI test command, with all test projects under `src/tests/`.

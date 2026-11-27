@@ -48,7 +48,7 @@ The king may not move to an attacked square. A move that leaves its own king in 
 
 Castling is legal only while the matching right remains, the king and rook are on their required home squares, all intervening squares are empty, and the king is not in check or crossing/landing on an attacked square. A rook's path may cross an attacked square; only the king's start, transit, and destination squares have the attacked-square restriction.
 
-Clear castling rights when the king moves, the corresponding rook moves from its home square, or that rook is captured on its home square. Record prior rights in undo state so unmake restores them exactly.
+Clear castling rights when the king moves, the corresponding rook moves from its home square, or that rook is captured on its home square. Record prior rights in UndoState so unmake restores them exactly.
 
 ### En passant
 
