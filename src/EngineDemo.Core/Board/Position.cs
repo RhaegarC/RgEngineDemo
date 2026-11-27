@@ -123,6 +123,7 @@ public sealed record Position
         EnPassantTarget = enPassantTarget;
         HalfmoveClock = halfmoveClock;
         FullmoveNumber = fullmoveNumber;
+        Hash = PositionHash.Compute(this);
     }
 
     public PieceBitboards Pieces { get; }
@@ -136,6 +137,8 @@ public sealed record Position
     public int HalfmoveClock { get; }
 
     public int FullmoveNumber { get; }
+
+    public ulong Hash { get; }
 
     public ulong WhiteOccupancy => Pieces.WhiteOccupancy;
 
