@@ -33,7 +33,7 @@ The repository now has a .NET 10 solution at `src/EngineDemo.slnx` with separate
 
 ## Sprint plan
 
-The initial implementation is broken into small, testable feature specs in the [Sprint 1 mission](docs/features/00-mission-01-sprint.md).
+Sprint 1 is complete. The [sprint roadmap](docs/features/00-sprint-roadmap.md) links the planned missions for Core move mechanics, legal rules, UCI, search, and evidence-based performance work.
 
 ## External protocol reference
 
