@@ -1,8 +1,8 @@
 # Feature 14 — Legal move filtering
 
-**Status:** Planned
+**Status:** In progress
 
-**Depends on:** [Feature 10 — Attack generation](../archive/sprint-02/10-attack-generation.md), [Feature 12 — Ordinary move application](../archive/sprint-02/12-ordinary-move-application.md), [Feature 13 — Pseudo-legal move generation](13-pseudo-legal-move-generation.md)
+**Depends on:** [Feature 10 — Attack generation](../archive/sprint-02/10-attack-generation.md), [Feature 12 — Ordinary move application](../archive/sprint-02/12-ordinary-move-application.md), [Feature 13 — Pseudo-legal move generation](../archive/sprint-02/13-pseudo-legal-move-generation.md)
 
 ## Summary
 
