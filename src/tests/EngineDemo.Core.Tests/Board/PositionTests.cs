@@ -128,6 +128,8 @@ public sealed class PositionTests
         var position = new Position(pieces);
 
         Assert.Equal(position, new Position(pieces));
+        Assert.True(position == new Position(pieces));
+        Assert.False(position != new Position(pieces));
         Assert.NotEqual(position, new Position(CreateKings(whiteKingIndex: 1)));
         Assert.NotEqual(position, new Position(pieces, sideToMove: Color.Black));
         Assert.NotEqual(position, new Position(pieces, castlingRights: CastlingRights.WhiteKingSide));

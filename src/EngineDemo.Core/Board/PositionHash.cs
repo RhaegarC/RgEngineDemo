@@ -49,7 +49,19 @@ public static class PositionHash
     {
         ArgumentNullException.ThrowIfNull(position);
 
-        var pieces = position.Pieces;
+        return Compute(
+            position.Pieces,
+            position.SideToMove,
+            position.CastlingRights,
+            position.EnPassantTarget);
+    }
+
+    internal static ulong Compute(
+        PieceBitboards pieces,
+        Color sideToMove,
+        CastlingRights castlingRights,
+        Square? enPassantTarget)
+    {
         var hash = 0UL;
 
         AddPieces(ref hash, pieces.WhitePawns, 0);
@@ -65,34 +77,34 @@ public static class PositionHash
         AddPieces(ref hash, pieces.BlackQueens, 10);
         AddPieces(ref hash, pieces.BlackKing, 11);
 
-        if (position.SideToMove == Color.Black)
+        if (sideToMove == Color.Black)
         {
             hash ^= SideToMoveKey;
         }
 
-        if ((position.CastlingRights & CastlingRights.WhiteKingSide) != 0)
+        if ((castlingRights & CastlingRights.WhiteKingSide) != 0)
         {
             hash ^= CastlingKeys[0];
         }
 
-        if ((position.CastlingRights & CastlingRights.WhiteQueenSide) != 0)
+        if ((castlingRights & CastlingRights.WhiteQueenSide) != 0)
         {
             hash ^= CastlingKeys[1];
         }
 
-        if ((position.CastlingRights & CastlingRights.BlackKingSide) != 0)
+        if ((castlingRights & CastlingRights.BlackKingSide) != 0)
         {
             hash ^= CastlingKeys[2];
         }
 
-        if ((position.CastlingRights & CastlingRights.BlackQueenSide) != 0)
+        if ((castlingRights & CastlingRights.BlackQueenSide) != 0)
         {
             hash ^= CastlingKeys[3];
         }
 
-        if (position.EnPassantTarget is { } enPassantTarget)
+        if (enPassantTarget is { } target)
         {
-            hash ^= EnPassantKeys[enPassantTarget.Index];
+            hash ^= EnPassantKeys[target.Index];
         }
 
         return hash;
