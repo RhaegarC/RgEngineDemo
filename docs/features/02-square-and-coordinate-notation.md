@@ -29,7 +29,7 @@ Add Core.Tests cases for the four corner mappings, all 64 coordinate round-trips
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~Square
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Square
 ```
 
 ## Non-goals

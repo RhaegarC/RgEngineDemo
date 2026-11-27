@@ -15,7 +15,7 @@ At the end of this sprint, callers can construct and inspect a standard-chess po
 ## Repository constraints
 
 - All application, test, and optional benchmark source code and project files stay under `src/`.
-- The solution lives at `src/RgChess.slnx`; Core tests live under `src/tests/`.
+- The solution lives at `src/EngineDemo.slnx`; Core tests live under `src/tests/`.
 - Use `EngineDemo` as the explicit C# root namespace. Keep `RgChess` for product and project naming.
 - Keep design and feature documents in `docs/road-map/` and `docs/features/`.
 - Do not add root-level `tests/`, `benchmarks/`, or source-code directories.
@@ -55,7 +55,7 @@ Implement in numeric order. Each feature is independently testable and should be
 ## Definition of done
 
 - Every feature's acceptance criteria are met and its focused tests pass.
-- `dotnet build src/RgChess.slnx` and `dotnet test src/RgChess.slnx` succeed.
+- `dotnet build src/EngineDemo.slnx` and `dotnet test src/EngineDemo.slnx` succeed.
 - Tests cover malformed and boundary inputs as well as valid positions; no test substitutes a fake for behavior it claims to prove.
 - A standard start position and valid FEN serialize deterministically; parse/serialize/parse preserves all position fields and the position key.
 - No production or test source/project file has been added outside `src/`.

@@ -16,21 +16,21 @@ As a contributor, I want a buildable solution and a Core test project configured
 
 ## Scope
 
-- Create `src/RgChess.slnx`.
-- Create `src/RgChess.Core/RgChess.Core.csproj` as a class library.
-- Create `src/RgChess.Uci/RgChess.Uci.csproj` as a console executable referencing Core.
-- Create `src/tests/RgChess.Core.Tests/RgChess.Core.Tests.csproj`, referencing Core and using xUnit.
-- Set `<RootNamespace>EngineDemo</RootNamespace>` explicitly in each project; keep project/assembly names `RgChess.*`.
+- Create `src/EngineDemo.slnx`.
+- Create `src/EngineDemo.Core/EngineDemo.Core.csproj` as a class library.
+- Create `src/EngineDemo.Uci/EngineDemo.Uci.csproj` as a console executable referencing Core.
+- Create `src/tests/EngineDemo.Core.Tests/EngineDemo.Core.Tests.csproj`, referencing Core and using xUnit.
+- Set `<RootNamespace>EngineDemo</RootNamespace>` explicitly in each project; use `EngineDemo.*` project and assembly names.
 - Move or replace the existing `src/EngineDemo` scaffold without leaving duplicate entry points or solution files.
 - Ensure all source and project files remain below `src/`.
 
 ## Acceptance criteria
 
-- [ ] `src/RgChess.slnx` contains Core, UCI, and Core.Tests projects with correct references.
+- [ ] `src/EngineDemo.slnx` contains Core, UCI, and Core.Tests projects with correct references.
 - [ ] Core, UCI, and Core.Tests target .NET 10 and build without warnings or errors.
 - [ ] Every project explicitly uses the `EngineDemo` root namespace.
-- [ ] `dotnet build src/RgChess.slnx` succeeds from the repository root.
-- [ ] `dotnet test src/RgChess.slnx` succeeds and builds the Core test project; no placeholder assertion is added just to create a test count.
+- [ ] `dotnet build src/EngineDemo.slnx` succeeds from the repository root.
+- [ ] `dotnet test src/EngineDemo.slnx` succeeds and builds the Core test project; no placeholder assertion is added just to create a test count.
 - [ ] No application/test source, project, or solution files exist outside `src/`.
 - [ ] The UCI executable remains a scaffold; it does not claim to implement UCI commands.
 
@@ -39,8 +39,8 @@ As a contributor, I want a buildable solution and a Core test project configured
 This is project scaffolding and does not introduce chess behavior. Do not add a placeholder assertion merely to create a test count. Verify the solution build and that the test command completes; the next feature adds the first behavior tests to Core.Tests.
 
 ```text
-dotnet build src/RgChess.slnx
-dotnet test src/RgChess.slnx
+dotnet build src/EngineDemo.slnx
+dotnet test src/EngineDemo.slnx
 ```
 
 ## Non-goals

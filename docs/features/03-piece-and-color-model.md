@@ -30,7 +30,7 @@ Add Core.Tests cases covering all twelve symbol mappings and round-trips, color/
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~Piece
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Piece
 ```
 
 ## Non-goals

@@ -46,7 +46,7 @@ The first implementation sprint is decomposed into ordered, independently testab
 
 ### Milestone 0 — project foundation
 
-- Evolve or replace `src/EngineDemo` with the solution at `src/RgChess.slnx`.
+- Evolve or replace `src/EngineDemo` with the solution at `src/EngineDemo.slnx`.
 - Establish production projects and all test projects beneath `src/`; keep source, tests, and optional benchmarks within that tree.
 - Acceptance: clean build and test commands; no engine behavior claimed yet.
 

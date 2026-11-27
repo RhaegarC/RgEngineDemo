@@ -33,7 +33,7 @@ Add Core.Tests cases for the initial-position FEN, a valid sparse position, each
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~FenParser
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~FenParser
 ```
 
 ## Non-goals

@@ -1,6 +1,6 @@
 # UCI protocol
 
-**Status:** proposed behavior for the future `RgChess.Uci` executable.
+**Status:** proposed behavior for the future `EngineDemo.Uci` executable.
 
 ## Transport and output rules
 

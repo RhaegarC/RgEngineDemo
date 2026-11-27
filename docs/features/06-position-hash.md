@@ -31,7 +31,7 @@ Add Core.Tests cases proving deterministic keys for repeated/equivalent position
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~Hash
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Hash
 ```
 
 ## Non-goals
