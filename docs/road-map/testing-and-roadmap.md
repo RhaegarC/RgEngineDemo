@@ -42,7 +42,7 @@ Do not advance a milestone while its gate fails:
 
 ## Development roadmap
 
-The first implementation sprint is decomposed into ordered, independently testable feature specs in the [Sprint 1 mission](../features/00-mission-01-sprint.md). Use that mission's dependency table and each feature's acceptance tests as the execution source of truth.
+Sprint 1 is complete. The sequenced missions for the remaining work, their dependencies, scope boundaries, and acceptance gates are in the [sprint roadmap](../features/00-sprint-roadmap.md). Use the active mission as the execution source of truth; split it into feature specs or subtasks only when implementation starts.
 
 ### Milestone 0 — project foundation (complete)
 
