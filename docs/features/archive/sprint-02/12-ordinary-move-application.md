@@ -1,8 +1,8 @@
 # Feature 12 — Ordinary move application
 
-**Status:** In progress
+**Status:** Archived
 
-**Depends on:** [Feature 11 — Move and undo-state model](../archive/sprint-02/11-move-and-undo-state.md)
+**Depends on:** [Feature 11 — Move and undo-state model](11-move-and-undo-state.md)
 
 ## Summary
 

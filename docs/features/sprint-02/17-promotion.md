@@ -2,7 +2,7 @@
 
 **Status:** Planned
 
-**Depends on:** [Feature 12 — Ordinary move application](12-ordinary-move-application.md), [Feature 14 — Legal move filtering](14-legal-move-filtering.md)
+**Depends on:** [Feature 12 — Ordinary move application](../archive/sprint-02/12-ordinary-move-application.md), [Feature 14 — Legal move filtering](14-legal-move-filtering.md)
 
 ## Summary
 
