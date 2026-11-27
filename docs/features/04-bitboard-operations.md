@@ -4,7 +4,7 @@
 
 **Priority:** 4
 
-**Dependencies:** [01 — Solution and Core test foundation](archive/01-solution-and-core-test-foundation.md), [02 — Square and coordinate notation](02-square-and-coordinate-notation.md)
+**Dependencies:** [01 — Solution and Core test foundation](archive/01-solution-and-core-test-foundation.md), [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md)
 
 ## Summary
 

@@ -1,10 +1,10 @@
 # Feature 02 — Square and coordinate notation
 
-**Status:** Complete
+**Status:** Archived (complete)
 
 **Priority:** 2
 
-**Dependencies:** [01 — Solution and Core test foundation](archive/01-solution-and-core-test-foundation.md)
+**Dependencies:** [01 — Solution and Core test foundation](01-solution-and-core-test-foundation.md)
 
 ## Summary
 
