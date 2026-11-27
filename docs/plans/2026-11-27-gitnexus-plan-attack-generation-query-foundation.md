@@ -10,7 +10,7 @@ With Sprint 1 complete and Feature 09 archived, begin the next board-rules incre
 
 ## 2. Current Behaviour
 
-- [verified] Feature 09 is archived and the Sprint 1 mission is Complete (`docs/features/archive/09-fen-serialization.md`; `docs/features/00-mission-01-sprint.md`, committed at `ac3e55a`).
+- [verified] Feature 09 is archived and the Sprint 1 mission is Complete (`docs/features/archive/sprint-01/09-fen-serialization.md`; `docs/features/archive/sprint-01/00-mission-01-sprint.md`, committed at `ac3e55a`).
 - [verified] `Position` provides validated piece bitboards and position metadata; `Square` exposes index/file/rank/validity; `Bitboard` provides membership and set-square operations (`Position.cs:67-139`, `Square.cs:19-25`, `Bitboard.cs:11-18`).
 - [verified] `Piece` represents piece type and color (`Piece.cs:25-85`). Existing tests establish square-edge/index and bitboard-membership conventions (`SquareTests.cs`, `BitboardTests.cs`).
 - [verified] No attack-generation implementation exists under `src/`; the architecture assigns attack masks and attacked-square queries to `AttackGenerator` (`docs/road-map/architecture.md:89`).
@@ -131,7 +131,7 @@ The full machine-readable context pack follows. `evidence_provenance` is copied 
           "untracked_digest": "absent"
         },
         {
-          "path": "docs/features/archive/09-fen-serialization.md",
+          "path": "docs/features/archive/sprint-01/09-fen-serialization.md",
           "object_kind": {
             "head": "regular",
             "index": "regular",

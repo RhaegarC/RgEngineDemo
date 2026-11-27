@@ -4,7 +4,7 @@
 
 **Sprint:** 1
 
-**Design references:** [Architecture](../../road-map/architecture.md), [Chess rules and move generation](../../road-map/chess-rules-and-move-generation.md), [Testing and roadmap](../../road-map/testing-and-roadmap.md)
+**Design references:** [Architecture](../../../road-map/architecture.md), [Chess rules and move generation](../../../road-map/chess-rules-and-move-generation.md), [Testing and roadmap](../../../road-map/testing-and-roadmap.md)
 
 ## Mission
 

@@ -8,7 +8,7 @@ This index organizes the requirements in [`docs/road-map/`](../road-map/) into s
 
 | Sprint | Mission | Main outcome | Depends on |
 |---|---|---|---|
-| 1 | [Core foundation and position notation](archive/00-mission-01-sprint.md) | .NET solution, position primitives, initial position, and strict FEN support. | Complete |
+| 1 | [Core foundation and position notation](archive/sprint-01/00-mission-01-sprint.md) | .NET solution, position primitives, initial position, and strict FEN support. | Complete |
 | 2 | [Complete chess rules core](00-mission-02-sprint.md) | Attack detection, reversible moves, legal move generation, perft, and draw rules. | Sprint 1 |
 | 3 | [UCI baseline and usable search](00-mission-03-sprint.md) | Reliable protocol host with deterministic search for depth, movetime, and infinite modes. | Sprint 2 |
 | 4 | [Tactical search and transposition table](00-mission-04-sprint.md) | Quiescence, move ordering, mate scores, and safe bounded hash reuse. | Sprint 3 |

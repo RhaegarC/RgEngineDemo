@@ -2,7 +2,7 @@
 
 **Status:** In progress
 
-**Depends on:** [Sprint 1 — Core foundation and position notation](../archive/00-mission-01-sprint.md)
+**Depends on:** [Sprint 1 — Core foundation and position notation](../archive/sprint-01/00-mission-01-sprint.md)
 
 ## Summary
 
