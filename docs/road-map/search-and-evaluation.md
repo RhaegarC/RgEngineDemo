@@ -70,7 +70,7 @@ Clear or age the table on `ucinewgame` according to a documented policy. If `set
 
 The base position key must distinguish piece placement, side to move, castling rights, and en-passant state. Repetition identity has a stricter rule: an en-passant right distinguishes positions only when a legal en-passant capture is available. Use a dedicated normalized repetition key (or legal-move comparison) so positions differing only by an unplayable en-passant square are recognized as identical.
 
-The halfmove clock affects fifty-move draw scores even though it is not part of the base position key. TT score reuse must therefore account for the halfmove-clock context (for example, by storing or validating it); a matching board key alone is insufficient when the clock differs. Repetition history is path-dependent and must not be treated as part of a reusable position score.
+The halfmove clock affects fifty-move draw scores even though it is not part of the base position key. A matching board key alone is insufficient when the clock differs. Permit score cutoffs across different halfmove clocks only when both clocks are provably unable to reach 100 within their respective remaining search horizons, including extensions and bounded quiescence. Near the threshold, require a validated equivalent draw context (a simple baseline may require equal halfmove clocks); otherwise use the TT entry only for move ordering. Do not infer fifty-move-draw provenance solely from a zero score. Repetition history is path-dependent and must not be treated as part of a reusable position score.
 
 ## Evaluation progression
 

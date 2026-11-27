@@ -20,11 +20,11 @@ Use perft fixtures with exact counts and divide output. Cover checks, pins, cast
 
 ### Search tests
 
-Use small tactical positions with known legal best-move sets rather than assuming one exact move where several are equal. Test checkmate precedence when halfmove/repetition thresholds are also met, automatic 75-move/fivefold draws when implemented, stalemate versus draw-threshold classification, claimable game-history draws separately from search-cycle repetition, halfmove-clock-sensitive transposition-table reuse, mate-distance preference, transposition-table bound behavior, cancellation, and fallback to the last completed iteration or legal root move. Make test positions and limits deterministic.
+Use small tactical positions with known legal best-move sets rather than assuming one exact move where several are equal. Test checkmate precedence when halfmove/repetition thresholds are also met, automatic 75-move/fivefold draws when implemented, stalemate versus draw-threshold classification, claimable game-history draws separately from search-cycle repetition, transposition-table score cutoffs across safe versus near-threshold halfmove clocks, and ensure a zero score alone is not treated as proof of a rule draw. Also test mate-distance preference, transposition-table bound behavior, cancellation, and fallback to the last completed iteration or legal root move. Make test positions and limits deterministic.
 
 ### UCI integration tests
 
-Run the executable as a child process with redirected stdin/stdout/stderr. Exercise handshake, readiness during search, startpos/FEN plus move lists, `go depth`, `go infinite` + `stop`, options, new-game reset, malformed input, and clean quit. Assert that stdout contains only valid protocol lines and that each search terminates with no more than one `bestmove`.
+Run the executable as a child process with redirected stdin/stdout/stderr. Exercise handshake, readiness during search, startpos/FEN plus move lists, `go depth`, `go infinite` + `stop`, options, new-game reset, malformed input, and clean quit. Assert `stop` emits one best-so-far move, while replacement commands and `quit` suppress the abandoned search's stale `bestmove`; stdout contains only valid protocol lines and each completed search emits no more than one `bestmove`.
 
 ### End-to-end compatibility checks
 
