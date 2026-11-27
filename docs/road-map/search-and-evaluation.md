@@ -66,7 +66,7 @@ Use a bounded table sized to a power of two when that simplifies indexing, with 
 
 A probe may return a score cutoff only when the stored depth, bound, and relevant draw-rule context justify it; a stored move can still guide ordering when the score is too shallow. If a compact entry size or cache alignment is pursued, specify the field packing and allocation guarantees explicitly and benchmark it; neither follows automatically from using a managed array. Consider native memory only if a measured requirement exceeds safe managed storage, and then define ownership, resizing, and disposal behavior.
 
-Clear or age the table on `ucinewgame` according to a documented policy. A `Hash` resize must be safe while no search is using the table. Do not treat a hash match as proof of identity without comparing the full key.
+Clear or age the table on `ucinewgame` according to a documented policy. If `setoption name Hash` is received during search, cancel and join that search before resizing; never replace or mutate the table while search can probe it. Do not treat a hash match as proof of identity without comparing the full key.
 
 The base position key must distinguish piece placement, side to move, castling rights, and en-passant state. Repetition identity has a stricter rule: an en-passant right distinguishes positions only when a legal en-passant capture is available. Use a dedicated normalized repetition key (or legal-move comparison) so positions differing only by an unplayable en-passant square are recognized as identical.
 
