@@ -2,7 +2,7 @@
 
 **Status:** Planned
 
-**Depends on:** [Feature 10 — Attack generation](10-attack-generation.md), [Feature 12 — Ordinary move application](12-ordinary-move-application.md), [Feature 13 — Pseudo-legal move generation](13-pseudo-legal-move-generation.md)
+**Depends on:** [Feature 10 — Attack generation](../archive/sprint-02/10-attack-generation.md), [Feature 12 — Ordinary move application](12-ordinary-move-application.md), [Feature 13 — Pseudo-legal move generation](13-pseudo-legal-move-generation.md)
 
 ## Summary
 

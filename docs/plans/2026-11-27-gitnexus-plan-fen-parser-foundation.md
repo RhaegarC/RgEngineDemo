@@ -66,7 +66,7 @@ Compare the standard initial FEN against `PositionFactory.CreateStandardInitialP
           "untracked_digest": "absent"
         },
         {
-          "path": "docs/features/archive/05-position-state-and-validation.md",
+          "path": "docs/features/archive/sprint-01/05-position-state-and-validation.md",
           "object_kind": {"head": "regular", "index": "regular", "worktree": "regular", "untracked": "absent"},
           "state": "clean", "rename_from": null, "rename_to": null,
           "head_digest": "sha256:0a409f59a1fc3adac823a6c8631c55e3e4aef080bf24483581dbbb0eb0c76c46",
@@ -75,7 +75,7 @@ Compare the standard initial FEN against `PositionFactory.CreateStandardInitialP
           "untracked_digest": "absent"
         },
         {
-          "path": "docs/features/archive/06-position-hash.md",
+          "path": "docs/features/archive/sprint-01/06-position-hash.md",
           "object_kind": {"head": "regular", "index": "regular", "worktree": "regular", "untracked": "absent"},
           "state": "clean", "rename_from": null, "rename_to": null,
           "head_digest": "sha256:a8abd0f7ad1f2bc80fdd1453575d035cc6cc1a715a01e0e685efaab4e70f0b1a",
