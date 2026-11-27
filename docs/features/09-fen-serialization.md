@@ -1,6 +1,6 @@
 # Feature 09 — FEN serialization
 
-**Status:** Planned
+**Status:** Complete
 
 **Priority:** 9
 
@@ -16,12 +16,12 @@ As a Core caller, I want a position serialized to canonical FEN, so that positio
 
 ## Acceptance criteria
 
-- [ ] Piece placement emits eight ranks, compresses consecutive empty squares, and uses the standard FEN symbols.
-- [ ] Side to move, castling rights, en-passant, halfmove clock, and fullmove number are all emitted.
-- [ ] Castling rights use canonical `KQkq` order; absent castling/en-passant state uses `-`.
-- [ ] Output is deterministic and contains exactly six fields.
-- [ ] The standard initial position serializes to `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`.
-- [ ] Parsing a serialized position reconstructs an equal position with the same position key.
+- [x] Piece placement emits eight ranks, compresses consecutive empty squares, and uses the standard FEN symbols.
+- [x] Side to move, castling rights, en-passant, halfmove clock, and fullmove number are all emitted.
+- [x] Castling rights use canonical `KQkq` order; absent castling/en-passant state uses `-`.
+- [x] Output is deterministic and contains exactly six fields.
+- [x] The standard initial position serializes to `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`.
+- [x] Parsing a serialized position reconstructs an equal position with the same position key.
 
 ## Tests (TDD)
 
