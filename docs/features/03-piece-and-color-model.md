@@ -1,6 +1,6 @@
 # Feature 03 — Piece and color model
 
-**Status:** Planned
+**Status:** Complete
 
 **Priority:** 3
 
@@ -16,22 +16,24 @@ As a Core caller, I want color and piece kinds represented explicitly, so that p
 
 ## Acceptance criteria
 
-- [ ] `Color` represents exactly White and Black.
-- [ ] `PieceType` represents Pawn, Knight, Bishop, Rook, Queen, and King.
-- [ ] A `Piece` value combines one valid color and one valid piece type.
-- [ ] Each of the twelve colored pieces maps to exactly one standard FEN symbol, with case determined by color.
-- [ ] Every valid FEN piece symbol maps back to the same `Piece`.
-- [ ] Unknown symbols and invalid enum values are rejected explicitly.
+- [x] `Color` represents exactly White and Black.
+- [x] `PieceType` represents Pawn, Knight, Bishop, Rook, Queen, and King.
+- [x] A `Piece` value combines one valid color and one valid piece type.
+- [x] Each of the twelve colored pieces maps to exactly one standard FEN symbol, with case determined by color.
+- [x] Every valid FEN piece symbol maps back to the same `Piece`.
+- [x] Unknown symbols and invalid enum values are rejected explicitly.
 
 ## Tests (TDD)
 
-Add Core.Tests cases covering all twelve symbol mappings and round-trips, color/case behavior, and rejection of unsupported symbols or invalid values. Avoid tests that only assert enum numeric constants.
+Core.Tests covers all twelve symbol mappings and round-trips, color/case behavior, and rejection of unsupported symbols or invalid values. It does not assert enum numeric constants.
 
 Run:
 
 ```text
 dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Piece
 ```
+
+Verified: the focused Piece tests passed (19); the full solution build completed with zero warnings/errors and all 39 tests passed.
 
 ## Non-goals
 
