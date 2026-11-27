@@ -17,8 +17,8 @@ Complete the linked subtasks in dependency order. Each spec defines its own scop
 | Subtask | Scope | Depends on | Status |
 |---|---|---|---|
 | [10 — Attack generation](archive/sprint-02/10-attack-generation.md) | Implement independent attack masks and attacked-square queries. | Sprint 1 | Archived |
-| [11 — Move and undo-state model](sprint-02/11-move-and-undo-state.md) | Define compact moves and complete undo snapshots. | Sprint 1 | In progress |
-| [12 — Ordinary move application](sprint-02/12-ordinary-move-application.md) | Make/unmake ordinary moves and captures with exact state restoration. | 11 | Planned |
+| [11 — Move and undo-state model](archive/sprint-02/11-move-and-undo-state.md) | Define compact moves and complete undo snapshots. | Sprint 1 | Archived |
+| [12 — Ordinary move application](sprint-02/12-ordinary-move-application.md) | Make/unmake ordinary moves and captures with exact state restoration. | 11 | In progress |
 | [13 — Pseudo-legal move generation](sprint-02/13-pseudo-legal-move-generation.md) | Generate ordinary pawn and piece moves. | 10, 11, 12 | Planned |
 | [14 — Legal move filtering](sprint-02/14-legal-move-filtering.md) | Enforce king safety and classify check, mate, and stalemate. | 10, 12, 13 | Planned |
 | [15 — Castling](sprint-02/15-castling.md) | Implement castling eligibility, move application, and restoration. | 12, 14 | Planned |

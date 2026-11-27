@@ -79,12 +79,26 @@ public sealed class PositionHashTests
     public void Compute_DoesNotMutatePositionState()
     {
         var position = CreateGoldenPosition();
-        var snapshot = position with { };
+        var pieces = position.Pieces;
+        var sideToMove = position.SideToMove;
+        var castlingRights = position.CastlingRights;
+        var enPassantTarget = position.EnPassantTarget;
+        var halfmoveClock = position.HalfmoveClock;
+        var fullmoveNumber = position.FullmoveNumber;
+        var hash = position.Hash;
+        var history = position.PositionHistory.ToArray();
 
         var computedHash = PositionHash.Compute(position);
 
-        Assert.Equal(snapshot, position);
-        Assert.Equal(position.Hash, computedHash);
+        Assert.Equal(pieces, position.Pieces);
+        Assert.Equal(sideToMove, position.SideToMove);
+        Assert.Equal(castlingRights, position.CastlingRights);
+        Assert.Equal(enPassantTarget, position.EnPassantTarget);
+        Assert.Equal(halfmoveClock, position.HalfmoveClock);
+        Assert.Equal(fullmoveNumber, position.FullmoveNumber);
+        Assert.Equal(hash, position.Hash);
+        Assert.Equal(history, position.PositionHistory);
+        Assert.Equal(hash, computedHash);
     }
 
     [Fact]
