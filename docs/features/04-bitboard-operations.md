@@ -1,6 +1,6 @@
 # Feature 04 — Bitboard operations
 
-**Status:** Planned
+**Status:** Complete
 
 **Priority:** 4
 
@@ -16,21 +16,23 @@ As a Core caller, I want safe, consistent bitboard operations, so that later pos
 
 ## Acceptance criteria
 
-- [ ] A bit can be set, cleared, and queried using a valid `Square`.
-- [ ] The population count is correct for empty, singleton, sparse, and full bitboards.
-- [ ] Set-square enumeration returns every set square exactly once, in a documented deterministic order.
-- [ ] Empty enumeration terminates without yielding an invalid square.
-- [ ] Operations do not mutate their input value unless mutation is explicitly part of the API.
+- [x] A bit can be set, cleared, and queried using a valid `Square`.
+- [x] The population count is correct for empty, singleton, sparse, and full bitboards.
+- [x] Set-square enumeration returns every set square exactly once in ascending square-index order.
+- [x] Empty enumeration terminates without yielding an invalid square.
+- [x] Operations do not mutate their input value unless mutation is explicitly part of the API.
 
 ## Tests (TDD)
 
-Add Core.Tests cases for `a1` and `h8` bit operations, repeated set/clear behavior, empty/full population counts, and enumeration across edge and mixed squares. Compare enumerated squares with an independently constructed expected set.
+Core.Tests covers `a1` and `h8` bit operations, repeated set/clear behavior, empty/singleton/sparse/full population counts, enumeration across edge and mixed squares, and rejection of the invalid default `Square`. Enumeration is checked against an independently constructed expected set.
 
 Run:
 
 ```text
 dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Bitboard
 ```
+
+Verified: the focused Bitboard tests passed (6); the full solution build completed with zero warnings/errors and all 45 tests passed.
 
 ## Non-goals
 
