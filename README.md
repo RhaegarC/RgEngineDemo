@@ -4,7 +4,7 @@ RgChess is intended to become a standard-chess engine that communicates with che
 
 ## Current baseline
 
-The repository currently contains a minimal .NET 10 console scaffold at `src/EngineDemo`. Its entry point only prints a greeting. The architecture and capabilities below are proposals for the next implementation stages.
+The repository currently contains a minimal .NET 10 console scaffold at `src/EngineDemo`. Its entry point only prints a greeting. Production code, tests, and optional benchmark code are all intended to live under `src/`; the architecture and capabilities below are proposals for the next implementation stages.
 
 ## Scope and design defaults
 
@@ -17,24 +17,28 @@ The repository currently contains a minimal .NET 10 console scaffold at `src/Eng
 
 ## Reading order
 
-1. [Architecture and module boundaries](docs/architecture.md)
-2. [Chess rules and move generation](docs/chess-rules-and-move-generation.md)
-3. [UCI protocol behavior](docs/uci-protocol.md)
-4. [Search and evaluation](docs/search-and-evaluation.md)
-5. [Testing, benchmarks, and roadmap](docs/testing-and-roadmap.md)
+1. [Architecture and module boundaries](docs/road-map/architecture.md)
+2. [Chess rules and move generation](docs/road-map/chess-rules-and-move-generation.md)
+3. [UCI protocol behavior](docs/road-map/uci-protocol.md)
+4. [Search and evaluation](docs/road-map/search-and-evaluation.md)
+5. [Testing, benchmarks, and roadmap](docs/road-map/testing-and-roadmap.md)
 
 ## Design documents
 
-- [Architecture](docs/architecture.md) — proposed solution layout, responsibilities, core types, and data flow.
-- [UCI protocol](docs/uci-protocol.md) — commands, options, output, search lifecycle, and error handling.
-- [Chess rules and move generation](docs/chess-rules-and-move-generation.md) — position state, FEN, legal moves, special moves, and perft.
-- [Search and evaluation](docs/search-and-evaluation.md) — search algorithms, evaluation, transposition table, and time management.
-- [Testing and roadmap](docs/testing-and-roadmap.md) — test strategy, measurable gates, benchmarks, and delivery stages.
+- [Architecture](docs/road-map/architecture.md) — proposed solution layout, responsibilities, core types, and data flow.
+- [UCI protocol](docs/road-map/uci-protocol.md) — commands, options, output, search lifecycle, and error handling.
+- [Chess rules and move generation](docs/road-map/chess-rules-and-move-generation.md) — position state, FEN, legal moves, special moves, and perft.
+- [Search and evaluation](docs/road-map/search-and-evaluation.md) — search algorithms, evaluation, transposition table, and time management.
+- [Testing and roadmap](docs/road-map/testing-and-roadmap.md) — test strategy, measurable gates, benchmarks, and delivery stages.
+
+## Sprint plan
+
+The initial implementation is broken into small, testable feature specs in the [Sprint 1 mission](docs/features/00-mission-01-sprint.md).
 
 ## External protocol reference
 
-The engine should follow the UCI protocol conventions documented at [UCI protocol](https://backscattering.de/chess/uci/). This project’s supported command set and development priorities are described in [uci-protocol.md](docs/uci-protocol.md).
+The engine should follow the UCI protocol conventions documented at [UCI protocol](https://backscattering.de/chess/uci/). This project’s supported command set and development priorities are described in [uci-protocol.md](docs/road-map/uci-protocol.md).
 
 ## Copilot agent resources
 
-Repository instructions, custom agents, testing guidance, and reusable skills are maintained under `.github/`. See [Copilot agent customizations](docs/agent-customizations.md) for the resource map and usage.
+Repository instructions, custom agents, testing guidance, and reusable skills are maintained under `.github/`. See [Copilot agent customizations](docs/road-map/agent-customizations.md) for the resource map and usage.

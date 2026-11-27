@@ -1,6 +1,6 @@
 # UCI protocol
 
-**Status:** proposed behavior for the future `RgChess.Uci` executable.
+**Status:** proposed behavior for the future `EngineDemo.Uci` executable.
 
 ## Transport and output rules
 
@@ -18,13 +18,13 @@ Implement protocol commands in stages. The first usable version should support t
 |---|---|
 | `uci` | Emit `id name RgChess`, `id author ...`, each supported `option` declaration, then `uciok`. Do not start a search. |
 | `isready` | Emit `readyok` promptly, including while a search is running. It must not stop or restart search. |
-| `ucinewgame` | Stop/join any active search, reset game-position history, and clear the transposition table when implemented. The GUI will send a new `position` afterward. |
+| `ucinewgame` | Cancel and join any active search as abandoned, without emitting its `bestmove`; reset game-position history, and clear the transposition table when implemented. The GUI will send a new `position` afterward. |
 | `position startpos [moves ...]` | Build the initial position and replay each move in order. |
 | `position fen <six FEN fields> [moves ...]` | Parse the supplied position and replay each following move. Build it transactionally, then replace the current position only after the FEN and every move are valid. Reject malformed FEN or illegal moves explicitly on stderr; do not silently substitute the initial position. |
 | `go ...` | Start exactly one search using parsed limits. Emit iterative `info` lines and one final `bestmove`. |
 | `stop` | Request cancellation, wait for the active search to return, and emit its best-so-far move exactly once. |
 | `setoption name <name> [value <value>]` | Validate known option names and values. Unknown or invalid options must not corrupt state; report diagnostics on stderr. |
-| `quit` | Cancel and join search, then exit cleanly. Do not block indefinitely waiting for a search that ignores cancellation. |
+| `quit` | Cancel and join active search as abandoned without emitting its `bestmove`, then exit cleanly. Do not block indefinitely waiting for a search that ignores cancellation. |
 
 Support standard UCI move notation: coordinate source and destination squares, with a lowercase promotion suffix (`q`, `r`, `b`, or `n`). Chess960-specific notation and options are out of scope.
 
@@ -36,9 +36,11 @@ Recommended initial option:
 
 | Option | Type | Initial behavior |
 |---|---|---|
-| `Hash` | spin, megabytes | Set transposition-table capacity within documented safe minimum/maximum bounds; default to a modest fixed size such as 16 MB. A change takes effect without corrupting an active search. |
+| `Hash` | spin, megabytes | Set transposition-table capacity within documented safe minimum/maximum bounds; default to a modest fixed size such as 16 MB. If a search is active, cancel and join it before applying the resize; never resize the table while search can access it. |
 
 Advertise only options the engine actually honors. A fixed single search thread does not need a `Threads` option. Add `Clear Hash` only when the table exists and the command works.
+
+Enforce a requested `nodes` limit at node boundaries without intentional overshoot. Check wall-clock deadlines and cancellation at documented bounded intervals; because a deadline can expire between checks, reserve time for protocol/scheduler overhead and test the maximum observed response delay. Do not promise that `movetime` is an exact wall-clock cutoff.
 
 Unknown `go` tokens must not be reinterpreted as valid limits. For malformed or conflicting limits, report the issue to stderr and reject the command; never start an unbounded search or substitute a success-shaped fallback.
 
@@ -46,12 +48,13 @@ Unknown `go` tokens must not be reinterpreted as valid limits. For malformed or 
 
 - Permit at most one active search.
 - The command loop remains able to process `isready`, `stop`, and `quit` during search. Use cancellation signaling and a clear completion path; do not block the input reader on the search task.
-- Before a new `position`, `ucinewgame`, or replacement `go` mutates search-owned state, cancel and join the previous search. The implementation must define whether replacement commands also emit the prior `bestmove`; never emit duplicate best moves.
+- If `stop` is received while search is active, cancel and join it, then emit exactly one `bestmove` from the last completed iteration or legal fallback.
+- If `position`, `ucinewgame`, a replacement `go`, or a `setoption` that changes search-owned state arrives while search is active without a prior `stop`, cancel and join the search as abandoned, suppress its final `bestmove`, then process the replacement command. Never emit a stale `bestmove` for abandoned work or duplicate a search's `bestmove`.
 - `stop` is idempotent. If no search is active, it has no effect.
 - When a finite limit expires, return the best move from the most recently completed iteration. If no iteration completed, return the best legal fallback found before cancellation.
 - If the root position has no legal move, emit `bestmove 0000`.
 - Ensure every started search reaches one terminal path and that terminal path cannot be bypassed by exceptions or cancellation.
-- `quit` cancels and joins active work before process exit. Do not promise `bestmove` after `quit`; the GUI is ending the session.
+- `quit` cancels and joins active work without emitting a `bestmove` for the abandoned search, then exits cleanly. The GUI is ending the session.
 
 Search execution should use `CancellationToken` plus a monotonic elapsed-time source. Protocol parsing and output formatting remain outside the search algorithm; see [architecture](architecture.md) and [search and evaluation](search-and-evaluation.md).
 
@@ -75,5 +78,6 @@ Do not emit a `bestmove` at each iterative-deepening depth: intermediate results
 - A malformed position is reported and does not silently become the initial position.
 - `go depth N` ends with one legal `bestmove`; `go infinite` remains active until stopped.
 - `stop` returns promptly and produces at most one final `bestmove`.
+- Replacement commands during an active search suppress the abandoned search's `bestmove`; a following `go` emits only its own final `bestmove`.
 - No diagnostic or non-protocol output appears on stdout.
 - Repeated new-game/search/stop/quit cycles terminate without leaked tasks or cross-search output.

@@ -7,7 +7,7 @@ description: Use when designing or running tests for backend/API or persistence 
 
 Status: **Draft** (2026-09-18)
 
-A project-independent standard for test tiers and test-first development. Its detailed tier definitions apply to backend/API code, not to the RgChess engine. For engine tests, use the perft, rules, search, and UCI test strategy in `docs/testing-and-roadmap.md`.
+A project-independent standard for test tiers and test-first development. Its detailed tier definitions apply to backend/API code, not to the RgChess engine. For engine tests, use the perft, rules, search, and UCI test strategy in `docs/road-map/testing-and-roadmap.md`.
 
 Nothing here names a feature, a project, or a test count. The feature/sprint documents own behavior coverage; this skill says how tests are written and where they run.
 
