@@ -31,7 +31,7 @@ Add Core.Tests cases for empty-side and mixed-color occupancy derivation, a vali
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~Position
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Position
 ```
 
 ## Non-goals

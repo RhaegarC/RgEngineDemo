@@ -30,7 +30,7 @@ Add Core.Tests cases for exact initial-position output, sparse boards with multi
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~FenSerializer
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~FenSerializer
 ```
 
 ## Non-goals

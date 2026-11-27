@@ -30,7 +30,7 @@ Add Core.Tests cases for exact piece placement by color/type, occupied squares, 
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~InitialPosition
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~InitialPosition
 ```
 
 ## Non-goals

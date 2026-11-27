@@ -29,7 +29,7 @@ Add Core.Tests cases for `a1` and `h8` bit operations, repeated set/clear behavi
 Run:
 
 ```text
-dotnet test src/RgChess.slnx --filter FullyQualifiedName~Bitboard
+dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Bitboard
 ```
 
 ## Non-goals

@@ -14,41 +14,43 @@ The current project at `src/EngineDemo` is a scaffold, not this proposed structu
 
 ```text
 src/
-  RgChess.slnx
-  RgChess.Core/
+  EngineDemo.slnx
+  EngineDemo.Core/
     Board/
     Notation/
     Search/
-  RgChess.Uci/
+  EngineDemo.Uci/
   tests/
-    RgChess.Core.Tests/
-    RgChess.Uci.Tests/
+    EngineDemo.Core.Tests/
+    EngineDemo.Uci.Tests/
   benchmarks/
-    RgChess.Benchmarks/    # optional; add when there are stable hot paths to measure
+    EngineDemo.Benchmarks/    # optional; add when there are stable hot paths to measure
 docs/
   road-map/
 .github/
 ```
 
-`RgChess.Core` is a class library containing the chess model, legal move generation, position parsing, search, and evaluation. `RgChess.Uci` is the console executable and depends on Core. Core must not depend on UCI or write to `Console`. Test projects live under `src/tests/` and remain separate from production assemblies. Add benchmark code under `src/benchmarks/` only when repeatable performance measurements are useful; correctness tests must not depend on it.
+`EngineDemo.Core` is a class library containing the chess model, legal move generation, position parsing, search, and evaluation. `EngineDemo.Uci` is the console executable and depends on Core. Core must not depend on UCI or write to `Console`. Test projects live under `src/tests/` and remain separate from production assemblies. Add benchmark code under `src/benchmarks/` only when repeatable performance measurements are useful; correctness tests must not depend on it.
 
-The current `src/EngineDemo/EngineDemo.slnx` and `EngineDemo.csproj` are an initial scaffold. When implementation begins, evolve or rename them into the layout above, placing the solution at `src/RgChess.slnx`; do not move source or tests out of `src/`.
+The current `src/EngineDemo/EngineDemo.slnx` and `EngineDemo.csproj` are an initial scaffold. When implementation begins, evolve or rename them into the layout above, placing the solution at `src/EngineDemo.slnx`; do not move source or tests out of `src/`.
 
 ## C# namespace conventions
 
-Use `EngineDemo` as the C# root namespace, even where assembly, project, and product names use `RgChess`. Set `<RootNamespace>EngineDemo</RootNamespace>` explicitly in each project file rather than relying on a project name to determine the namespace.
+Use `EngineDemo` as the C# root namespace and as the prefix for project and assembly names. Keep `RgChess` for the product name and UCI identity. Set `<RootNamespace>EngineDemo</RootNamespace>` explicitly in each project file rather than relying on a project name to determine the namespace.
+
+For example, code in the `EngineDemo.Core` project should declare `namespace EngineDemo.Core;` (or a sub-namespace such as `EngineDemo.Core.Board`).
 
 Use descriptive sub-namespaces for project boundaries and modules:
 
 | Project | Namespace examples |
 |---|---|
-| `RgChess.Core` | `EngineDemo.Core`, `EngineDemo.Core.Board`, `EngineDemo.Core.Notation`, `EngineDemo.Core.Search` |
-| `RgChess.Uci` | `EngineDemo.Uci` |
-| `RgChess.Core.Tests` | `EngineDemo.Core.Tests` |
-| `RgChess.Uci.Tests` | `EngineDemo.Uci.Tests` |
-| `RgChess.Benchmarks` | `EngineDemo.Benchmarks` |
+| `EngineDemo.Core` | `EngineDemo.Core`, `EngineDemo.Core.Board`, `EngineDemo.Core.Notation`, `EngineDemo.Core.Search` |
+| `EngineDemo.Uci` | `EngineDemo.Uci` |
+| `EngineDemo.Core.Tests` | `EngineDemo.Core.Tests` |
+| `EngineDemo.Uci.Tests` | `EngineDemo.Uci.Tests` |
+| `EngineDemo.Benchmarks` | `EngineDemo.Benchmarks` |
 
-Keep the product name **RgChess** in user-facing identity, documentation, executable/assembly naming, and UCI identification where appropriate. This namespace convention changes C# naming only.
+Keep the product name **RgChess** in user-facing identity, product documentation, and UCI identification where appropriate.
 
 Within Core, organize by domain responsibility rather than creating a project for every subsystem:
 
