@@ -1,6 +1,6 @@
 # Feature 07 — Standard initial position
 
-**Status:** Planned
+**Status:** Complete
 
 **Priority:** 7
 
@@ -16,12 +16,18 @@ As a client of Core, I want to request the standard initial position, so that en
 
 ## Acceptance criteria
 
-- [ ] The factory returns all 32 starting pieces on their correct squares.
-- [ ] Side to move is White; all four castling rights are present; en-passant is absent.
-- [ ] The halfmove clock is zero and fullmove number is one.
-- [ ] Derived white, black, and total occupancy match the expected starting ranks and piece counts.
-- [ ] The returned position passes structural validation and has its deterministic position key.
-- [ ] Repeated calls return equal positions and equal keys without sharing mutable state.
+- [x] The factory returns all 32 starting pieces on their correct squares.
+- [x] Side to move is White; all four castling rights are present; en-passant is absent.
+- [x] The halfmove clock is zero and fullmove number is one.
+- [x] Derived white, black, and total occupancy match the expected starting ranks and piece counts.
+- [x] The returned position passes structural validation and has its deterministic position key.
+- [x] Repeated calls return equal positions and equal keys without sharing mutable state.
+
+## Verification
+
+- `dotnet test src/EngineDemo.slnx --no-restore --filter FullyQualifiedName~InitialPosition` — 4 passed.
+- `dotnet build src/EngineDemo.slnx` — succeeded with 0 warnings and 0 errors.
+- `dotnet test src/EngineDemo.slnx --no-restore` — 76 passed, 0 skipped.
 
 ## Tests (TDD)
 
