@@ -10,7 +10,7 @@ The initial design favors explicit state and well-tested algorithms over prematu
 
 ## Proposed solution layout
 
-The current project at `src/EngineDemo` is a scaffold, not this proposed structure. Keep **all source-bearing projects and their source files under `src/`**, including production code, tests, and optional benchmarks. The solution file also lives in `src/`. Do not create root-level `tests/`, `benchmarks/`, or other source-code directories. Documentation, repository configuration, and non-code assets may remain in their appropriate top-level folders.
+The current solution provides the Core library, UCI-host scaffold, and Core test project from this proposed structure; UCI tests and benchmarks remain future additions. Keep **all source-bearing projects and their source files under `src/`**, including production code, tests, and optional benchmarks. The solution file also lives in `src/`. Do not create root-level `tests/`, `benchmarks/`, or other source-code directories. Documentation, repository configuration, and non-code assets may remain in their appropriate top-level folders.
 
 ```text
 src/
@@ -32,7 +32,7 @@ docs/
 
 `EngineDemo.Core` is a class library containing the chess model, legal move generation, position parsing, search, and evaluation. `EngineDemo.Uci` is the console executable and depends on Core. Core must not depend on UCI or write to `Console`. Test projects live under `src/tests/` and remain separate from production assemblies. Add benchmark code under `src/benchmarks/` only when repeatable performance measurements are useful; correctness tests must not depend on it.
 
-The current `src/EngineDemo/EngineDemo.slnx` and `EngineDemo.csproj` are an initial scaffold. When implementation begins, evolve or rename them into the layout above, placing the solution at `src/EngineDemo.slnx`; do not move source or tests out of `src/`.
+`src/EngineDemo.slnx` contains `EngineDemo.Core`, `EngineDemo.Uci`, and `EngineDemo.Core.Tests`. The UCI project is only a host scaffold; later features add chess behavior and UCI commands. Add further test or benchmark projects under `src/` only when their features require them.
 
 ## C# namespace conventions
 
