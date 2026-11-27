@@ -1,10 +1,10 @@
 # Feature 06 — Deterministic position hash
 
-**Status:** Complete
+**Status:** Archived
 
 **Priority:** 6
 
-**Dependencies:** [05 — Position state and validation](archive/05-position-state-and-validation.md)
+**Dependencies:** [05 — Position state and validation](05-position-state-and-validation.md)
 
 ## Hash definition
 
