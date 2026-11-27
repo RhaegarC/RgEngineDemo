@@ -1,10 +1,10 @@
 # Feature 05 — Position state and validation
 
-**Status:** Complete
+**Status:** Archived (complete)
 
 **Priority:** 5
 
-**Dependencies:** [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md), [03 — Piece and color model](archive/03-piece-and-color-model.md), [04 — Bitboard operations](archive/04-bitboard-operations.md)
+**Dependencies:** [02 — Square and coordinate notation](02-square-and-coordinate-notation.md), [03 — Piece and color model](03-piece-and-color-model.md), [04 — Bitboard operations](04-bitboard-operations.md)
 
 ## Summary
 

@@ -4,7 +4,7 @@
 
 **Priority:** 6
 
-**Dependencies:** [05 — Position state and validation](05-position-state-and-validation.md)
+**Dependencies:** [05 — Position state and validation](archive/05-position-state-and-validation.md)
 
 ## Summary
 

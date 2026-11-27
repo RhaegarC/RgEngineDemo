@@ -46,7 +46,7 @@ Implement in numeric order. Each feature is independently testable and should be
 | [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md) | Add the 64-square type, indexing contract, and coordinate conversion. | 01 | Archived |
 | [03 — Piece and color model](archive/03-piece-and-color-model.md) | Add typed colors/pieces and a reversible FEN-symbol mapping. | 01 | Archived |
 | [04 — Bitboard operations](archive/04-bitboard-operations.md) | Add safe, tested bitboard membership and iteration helpers. | 01, 02 | Archived |
-| [05 — Position state and validation](05-position-state-and-validation.md) | Store position metadata and piece masks; validate invariants and derive occupancy. | 02, 03, 04 | Planned |
+| [05 — Position state and validation](archive/05-position-state-and-validation.md) | Store position metadata and piece masks; validate invariants and derive occupancy. | 02, 03, 04 | Archived |
 | [06 — Position hash](06-position-hash.md) | Add a deterministic Zobrist key for a complete position. | 05 | Planned |
 | [07 — Standard initial position](07-standard-initial-position.md) | Construct and verify the standard start position. | 05, 06 | Planned |
 | [08 — FEN parsing](08-fen-parsing.md) | Parse and validate all six FEN fields into a Position. | 02, 03, 05, 06 | Planned |
