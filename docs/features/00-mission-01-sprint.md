@@ -1,6 +1,6 @@
 # Mission: Sprint 1 — Core foundation and position notation
 
-**Status:** Planned
+**Status:** In progress
 
 **Sprint:** 1
 

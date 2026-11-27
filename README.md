@@ -4,7 +4,7 @@ RgChess is intended to become a standard-chess engine that communicates with che
 
 ## Current baseline
 
-The repository currently contains a minimal .NET 10 console scaffold at `src/EngineDemo`. Its entry point only prints a greeting. Production code, tests, and optional benchmark code are all intended to live under `src/`; the architecture and capabilities below are proposals for the next implementation stages.
+The repository now has a .NET 10 solution at `src/EngineDemo.slnx` with separate Core, UCI-host, and Core test projects under `src/`. The UCI host is an empty scaffold and Core does not yet implement chess behavior. Production code, tests, and optional benchmark code belong under `src/`; the engine capabilities below remain proposed design.
 
 ## Scope and design defaults
 

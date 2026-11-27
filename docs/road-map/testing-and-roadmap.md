@@ -6,7 +6,7 @@
 
 All source code belongs under `src/`, including production projects, test projects, and any optional benchmark project. Keep test source under `src/tests/`; do not create a repository-root `tests/` folder. Keep the solution file under `src/` as well. Documentation remains under `docs/`, and Copilot configuration remains under `.github/`.
 
-The current scaffold is `src/EngineDemo`. Its solution and project will be evolved or renamed into the layout in [architecture.md](architecture.md) as implementation begins.
+The initial solution at `src/EngineDemo.slnx` contains the Core library, UCI-host scaffold, and Core test project. Add later projects under `src/` as their features are implemented; see [architecture.md](architecture.md).
 
 ## Test layers
 
