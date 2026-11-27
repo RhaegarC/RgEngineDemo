@@ -1,6 +1,6 @@
 # Feature 02 — Square and coordinate notation
 
-**Status:** Planned
+**Status:** Complete
 
 **Priority:** 2
 
@@ -16,21 +16,24 @@ As a Core caller, I want squares represented by a validated type, so that board 
 
 ## Acceptance criteria
 
-- [ ] `a1` maps to index 0, `h1` to 7, `a8` to 56, and `h8` to 63.
-- [ ] A square can be created only for an index from 0 through 63.
-- [ ] Valid lowercase coordinates (`a1` through `h8`) parse and format back to the same coordinate.
-- [ ] Invalid length, file, rank, casing, and out-of-range indices are rejected explicitly.
-- [ ] The type exposes rank/file or equivalent accessors consistent with the index mapping.
+- [x] `a1` maps to index 0, `h1` to 7, `a8` to 56, and `h8` to 63.
+- [x] A square can be created only for an index from 0 through 63.
+- [x] Valid lowercase coordinates (`a1` through `h8`) parse and format back to the same coordinate.
+- [x] Invalid length, file, rank, casing, and out-of-range indices are rejected explicitly.
+- [x] The type exposes zero-based `File` and `Rank` accessors consistent with the index mapping.
+- [x] Invalid `TryParse` calls return failure and leave the output square invalid.
 
 ## Tests (TDD)
 
-Add Core.Tests cases for the four corner mappings, all 64 coordinate round-trips, file/rank accessors, and invalid coordinates/indices. Invalid `TryParse` calls must return failure without exposing a valid square.
+Core.Tests covers the four corner mappings, all 64 coordinate round-trips, file/rank accessors, invalid coordinates/indices, and the invalid default output from failed `TryParse` calls.
 
 Run:
 
 ```text
 dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Square
 ```
+
+Verified: the focused Square tests passed (20); the full solution build completed with zero warnings/errors and all 20 tests passed.
 
 ## Non-goals
 
