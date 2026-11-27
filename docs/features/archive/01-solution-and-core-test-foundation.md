@@ -1,6 +1,6 @@
 # Feature 01 — Solution and Core test foundation
 
-**Status:** Complete
+**Status:** Archived (complete)
 
 **Priority:** 1
 
