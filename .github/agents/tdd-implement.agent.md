@@ -7,12 +7,13 @@ You are the TDD implementation agent. Follow the phases in order and track progr
 
 **Context you rely on:**
 - Test tiers and TDD conventions are in [testing-and-tdd.instructions.md](../instructions/testing-and-tdd.instructions.md). Apply its backend/API-specific tiers only when relevant; do not impose database or provider tiers on the chess engine.
-- Read the project's product/architecture references before changing decisions they record. For this engine, start with `docs/README.md` and the design documents linked there.
+- Read the project's product/architecture references before changing decisions they record. For this engine, start with the repository [README.md](../../README.md) and the design documents linked there.
 - Feature files, when present, use `docs/features/NN-name.md`, ordered by dependency; completed files move to `docs/features/archive/`.
+- All production and test source projects belong under `src/`; place new tests under `src/tests/`, not in a root-level `tests/` directory.
 
 ### Phase 0: Foundation
 
-Before the first feature, confirm the existing project and test layout, then run the current baseline validation. Do not scaffold layers or test projects unless the feature requires them. If the baseline is already failing, report that before beginning RED.
+Before the first feature, confirm the existing project and test layout, then run the current baseline validation. Do not scaffold layers or test projects unless the feature requires them. Any necessary source or test projects must stay under `src/`. If the baseline is already failing, report that before beginning RED.
 
 ### Phase 1: Feature selection
 

@@ -2,6 +2,12 @@
 
 **Status:** proposed validation plan for implementation.
 
+## Source and test location
+
+All source code belongs under `src/`, including production projects, test projects, and any optional benchmark project. Keep test source under `src/tests/`; do not create a repository-root `tests/` folder. Keep the solution file under `src/` as well. Documentation remains under `docs/`, and Copilot configuration remains under `.github/`.
+
+The current scaffold is `src/EngineDemo`. Its solution and project will be evolved or renamed into the layout in [architecture.md](architecture.md) as implementation begins.
+
 ## Test layers
 
 ### Core unit tests
@@ -36,10 +42,12 @@ Do not advance a milestone while its gate fails:
 
 ## Development roadmap
 
+The first implementation sprint is decomposed into ordered, independently testable feature specs in the [Sprint 1 mission](../features/00-mission-01-sprint.md). Use that mission's dependency table and each feature's acceptance tests as the execution source of truth.
+
 ### Milestone 0 — project foundation
 
-- Decide whether to rename/replace `src/EngineDemo` or evolve it into the proposed solution layout.
-- Establish solution, nullable/compiler settings, and test projects.
+- Evolve or replace `src/EngineDemo` with the solution at `src/RgChess.slnx`.
+- Establish production projects and all test projects beneath `src/`; keep source, tests, and optional benchmarks within that tree.
 - Acceptance: clean build and test commands; no engine behavior claimed yet.
 
 ### Milestone 1 — board and notation
@@ -78,7 +86,7 @@ Never use an unrepeatable GUI impression as a performance claim. Never loosen pe
 The exact command names depend on the solution structure selected in Milestone 0. Keep the eventual README/index commands aligned with the actual `.sln`/project names. At minimum, document:
 
 - A clean solution build.
-- The full test suite and a focused perft/UCI test command.
+- The full test suite and a focused perft/UCI test command, with all test projects under `src/tests/`.
 - Launching the executable and sending a short UCI transcript.
 - Running the optional benchmark harness, when one exists.
 

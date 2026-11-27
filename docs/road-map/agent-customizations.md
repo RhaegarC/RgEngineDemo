@@ -13,11 +13,11 @@ Project-wide Copilot resources live under `.github/`, the native workspace locat
 
 The former Claude `/commands` were converted to on-demand Agent Skills so they work with the Copilot harness and avoid deprecated Local-harness prompt files. Supporting references, templates, and scripts remain within their skill folders.
 
-This migration covers the repository's agents, rules, skills, and commands. Claude-specific hooks, local settings, backups, and runtime state are not Copilot customizations and were left unchanged.
+This migration covers the repository's agents, rules, skills, and commands. Claude-specific hooks, local settings, backups, and runtime state are not Copilot customizations; obsolete project settings, hooks, and temporary helper files were removed rather than migrated.
 
 ## Available resources
 
-See the index at [`.github/skills/README.md`](../.github/skills/README.md) for all migrated skills and command workflows. The skill folders with scripts or reference material must be kept intact when editing or copying a skill.
+See the index at [`.github/skills/README.md`](../../.github/skills/README.md) for all migrated skills and command workflows. The skill folders with scripts or reference material must be kept intact when editing or copying a skill.
 
 ## Using them
 
