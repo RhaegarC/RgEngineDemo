@@ -89,6 +89,7 @@ Use monotonic elapsed time (`Stopwatch.GetTimestamp()`) rather than wall-clock t
 - `depth` and `nodes` are hard limits.
 - `movetime` reserves a small fixed safety margin for protocol and scheduler overhead.
 - Clock allocation is based on remaining time, increment, and optional moves-to-go; retain a safety reserve rather than spending the full clock in one move.
+- With clock-based limits (`wtime`/`btime`), the allocator may choose a reduced budget when the root has exactly one legal move, but search must still examine that move's continuation. This adjustment must not change explicit `depth`, `nodes`, or `movetime` limits, and must not cause `infinite` search to terminate before cancellation.
 - `infinite` continues until cancelled.
 - Enforce a requested node count at node boundaries without intentional overshoot. Check wall-clock deadlines and cancellation at bounded node intervals to amortize timer overhead; document and test the resulting maximum response delay, including quiescence.
 - On timeout, finish the current safe point and return the most recent completed iteration, or the legal root fallback if none completed.
