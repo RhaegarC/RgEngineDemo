@@ -1,10 +1,10 @@
 # Feature 05 — Position state and validation
 
-**Status:** Planned
+**Status:** Complete
 
 **Priority:** 5
 
-**Dependencies:** [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md), [03 — Piece and color model](archive/03-piece-and-color-model.md), [04 — Bitboard operations](04-bitboard-operations.md)
+**Dependencies:** [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md), [03 — Piece and color model](archive/03-piece-and-color-model.md), [04 — Bitboard operations](archive/04-bitboard-operations.md)
 
 ## Summary
 
@@ -16,23 +16,25 @@ As a Core caller, I want a validated position value, so that parsers and later m
 
 ## Acceptance criteria
 
-- [ ] A position stores twelve colored piece bitboards, side to move, four castling rights, optional en-passant target, halfmove clock, and fullmove number.
-- [ ] White, Black, and total occupancy are derived consistently from piece bitboards, not maintained as conflicting independent input.
-- [ ] Piece bitboards are disjoint; overlap is rejected with a useful error.
-- [ ] A structurally valid position contains exactly one king of each color.
-- [ ] The halfmove clock is non-negative and the fullmove number is at least one.
-- [ ] No en-passant target is represented explicitly as absent; present targets are valid board squares.
-- [ ] Equality or an equivalent comparison includes all state fields needed to distinguish positions.
+- [x] A position stores twelve colored piece bitboards, side to move, four castling rights, optional en-passant target, halfmove clock, and fullmove number.
+- [x] White, Black, and total occupancy are derived consistently from piece bitboards, not maintained as conflicting independent input.
+- [x] Piece bitboards are disjoint; overlap is rejected with a useful error.
+- [x] A structurally valid position contains exactly one king of each color.
+- [x] The halfmove clock is non-negative and the fullmove number is at least one.
+- [x] No en-passant target is represented explicitly as absent; present targets are valid board squares.
+- [x] Equality or an equivalent comparison includes all state fields needed to distinguish positions.
 
 ## Tests (TDD)
 
-Add Core.Tests cases for empty-side and mixed-color occupancy derivation, a valid sparse position, overlapping piece masks, missing/duplicate kings, invalid clocks, and equality when each metadata field changes.
+Core.Tests covers empty-side and mixed-color occupancy derivation, a valid sparse position, overlapping piece masks, missing/duplicate kings, invalid clocks, en-passant validity, invalid metadata enums, and equality when each metadata field changes.
 
 Run:
 
 ```text
 dotnet test src/EngineDemo.slnx --filter FullyQualifiedName~Position
 ```
+
+Verified: the focused Position tests passed (15); the full solution build completed with zero warnings/errors and all 60 tests passed.
 
 ## Non-goals
 
