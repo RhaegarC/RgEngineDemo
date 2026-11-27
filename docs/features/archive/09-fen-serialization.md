@@ -1,6 +1,6 @@
 # Feature 09 — FEN serialization
 
-**Status:** Complete
+**Status:** Archived (complete)
 
 **Priority:** 9
 
@@ -22,6 +22,11 @@ As a Core caller, I want a position serialized to canonical FEN, so that positio
 - [x] Output is deterministic and contains exactly six fields.
 - [x] The standard initial position serializes to `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`.
 - [x] Parsing a serialized position reconstructs an equal position with the same position key.
+
+## Verification
+
+- `dotnet build src/EngineDemo.slnx --no-restore` — succeeded with 0 warnings and 0 errors.
+- `dotnet test src/EngineDemo.slnx --no-restore` — 118 passed, 0 failed, 0 skipped.
 
 ## Tests (TDD)
 
