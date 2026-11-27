@@ -48,7 +48,7 @@ Implement in numeric order. Each feature is independently testable and should be
 | [04 — Bitboard operations](archive/04-bitboard-operations.md) | Add safe, tested bitboard membership and iteration helpers. | 01, 02 | Archived |
 | [05 — Position state and validation](archive/05-position-state-and-validation.md) | Store position metadata and piece masks; validate invariants and derive occupancy. | 02, 03, 04 | Archived |
 | [06 — Position hash](archive/06-position-hash.md) | Add a deterministic Zobrist key for a complete position. | 05 | Archived |
-| [07 — Standard initial position](07-standard-initial-position.md) | Construct and verify the standard start position. | 05, 06 | Done |
+| [07 — Standard initial position](archive/07-standard-initial-position.md) | Construct and verify the standard start position. | 05, 06 | Archived |
 | [08 — FEN parsing](08-fen-parsing.md) | Parse and validate all six FEN fields into a Position. | 02, 03, 05, 06 | Planned |
 | [09 — FEN serialization](09-fen-serialization.md) | Serialize valid positions deterministically and prove round trips. | 07, 08 | Planned |
 
