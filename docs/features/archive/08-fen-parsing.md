@@ -1,10 +1,10 @@
 # Feature 08 — FEN parsing
 
-**Status:** Complete
+**Status:** Archived
 
 **Priority:** 8
 
-**Dependencies:** [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md), [03 — Piece and color model](archive/03-piece-and-color-model.md), [05 — Position state and validation](archive/05-position-state-and-validation.md), [06 — Deterministic position hash](archive/06-position-hash.md)
+**Dependencies:** [02 — Square and coordinate notation](02-square-and-coordinate-notation.md), [03 — Piece and color model](03-piece-and-color-model.md), [05 — Position state and validation](05-position-state-and-validation.md), [06 — Deterministic position hash](06-position-hash.md)
 
 ## Summary
 

@@ -4,7 +4,7 @@
 
 **Priority:** 9
 
-**Dependencies:** [07 — Standard initial position](archive/07-standard-initial-position.md), [08 — FEN parsing](08-fen-parsing.md)
+**Dependencies:** [07 — Standard initial position](archive/07-standard-initial-position.md), [08 — FEN parsing](archive/08-fen-parsing.md)
 
 ## Summary
 
