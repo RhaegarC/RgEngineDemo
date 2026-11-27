@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>EngineDemo.Uci</AssemblyName>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>EngineDemo</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EngineDemo.Core\EngineDemo.Core.csproj" />
+  </ItemGroup>
+
+</Project>

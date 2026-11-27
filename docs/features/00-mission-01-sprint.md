@@ -1,6 +1,6 @@
 # Mission: Sprint 1 — Core foundation and position notation
 
-**Status:** Planned
+**Status:** Complete
 
 **Sprint:** 1
 
@@ -40,17 +40,17 @@ At the end of this sprint, callers can construct and inspect a standard-chess po
 
 Implement in numeric order. Each feature is independently testable and should be completed before its dependents.
 
-| Feature | Scope | Depends on |
-|---|---|---|
-| [01 — Solution and Core test foundation](01-solution-and-core-test-foundation.md) | Create the solution and the Core, UCI-host, and Core-test projects under `src/`. | None |
-| [02 — Square and coordinate notation](02-square-and-coordinate-notation.md) | Add the 64-square type, indexing contract, and coordinate conversion. | 01 |
-| [03 — Piece and color model](03-piece-and-color-model.md) | Add typed colors/pieces and a reversible FEN-symbol mapping. | 01 |
-| [04 — Bitboard operations](04-bitboard-operations.md) | Add safe, tested bitboard membership and iteration helpers. | 01, 02 |
-| [05 — Position state and validation](05-position-state-and-validation.md) | Store position metadata and piece masks; validate invariants and derive occupancy. | 02, 03, 04 |
-| [06 — Position hash](06-position-hash.md) | Add a deterministic Zobrist key for a complete position. | 05 |
-| [07 — Standard initial position](07-standard-initial-position.md) | Construct and verify the standard start position. | 05, 06 |
-| [08 — FEN parsing](08-fen-parsing.md) | Parse and validate all six FEN fields into a Position. | 02, 03, 05, 06 |
-| [09 — FEN serialization](09-fen-serialization.md) | Serialize valid positions deterministically and prove round trips. | 07, 08 |
+| Feature | Scope | Depends on | Status |
+|---|---|---|---|
+| [01 — Solution and Core test foundation](archive/01-solution-and-core-test-foundation.md) | Create the solution and the Core, UCI-host, and Core-test projects under `src/`. | None | Archived |
+| [02 — Square and coordinate notation](archive/02-square-and-coordinate-notation.md) | Add the 64-square type, indexing contract, and coordinate conversion. | 01 | Archived |
+| [03 — Piece and color model](archive/03-piece-and-color-model.md) | Add typed colors/pieces and a reversible FEN-symbol mapping. | 01 | Archived |
+| [04 — Bitboard operations](archive/04-bitboard-operations.md) | Add safe, tested bitboard membership and iteration helpers. | 01, 02 | Archived |
+| [05 — Position state and validation](archive/05-position-state-and-validation.md) | Store position metadata and piece masks; validate invariants and derive occupancy. | 02, 03, 04 | Archived |
+| [06 — Position hash](archive/06-position-hash.md) | Add a deterministic Zobrist key for a complete position. | 05 | Archived |
+| [07 — Standard initial position](archive/07-standard-initial-position.md) | Construct and verify the standard start position. | 05, 06 | Archived |
+| [08 — FEN parsing](archive/08-fen-parsing.md) | Parse and validate all six FEN fields into a Position. | 02, 03, 05, 06 | Archived |
+| [09 — FEN serialization](archive/09-fen-serialization.md) | Serialize valid positions deterministically and prove round trips. | 07, 08 | Archived |
 
 ## Definition of done
 

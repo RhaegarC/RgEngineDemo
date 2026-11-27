@@ -1,6 +1,6 @@
 # Feature 01 — Solution and Core test foundation
 
-**Status:** Planned
+**Status:** Archived (complete)
 
 **Priority:** 1
 
@@ -26,13 +26,13 @@ As a contributor, I want a buildable solution and a Core test project configured
 
 ## Acceptance criteria
 
-- [ ] `src/EngineDemo.slnx` contains Core, UCI, and Core.Tests projects with correct references.
-- [ ] Core, UCI, and Core.Tests target .NET 10 and build without warnings or errors.
-- [ ] Every project explicitly uses the `EngineDemo` root namespace.
-- [ ] `dotnet build src/EngineDemo.slnx` succeeds from the repository root.
-- [ ] `dotnet test src/EngineDemo.slnx` succeeds and builds the Core test project; no placeholder assertion is added just to create a test count.
-- [ ] No application/test source, project, or solution files exist outside `src/`.
-- [ ] The UCI executable remains a scaffold; it does not claim to implement UCI commands.
+- [x] `src/EngineDemo.slnx` contains Core, UCI, and Core.Tests projects with correct references.
+- [x] Core, UCI, and Core.Tests target .NET 10 and build without warnings or errors.
+- [x] Every project explicitly uses the `EngineDemo` root namespace.
+- [x] `dotnet build src/EngineDemo.slnx` succeeds from the repository root.
+- [x] `dotnet test src/EngineDemo.slnx` succeeds and builds the Core test project; no placeholder assertion is added just to create a test count.
+- [x] No application/test source, project, or solution files exist outside `src/`.
+- [x] The UCI executable remains a scaffold; it does not claim to implement UCI commands.
 
 ## Tests (TDD) and verification
 
