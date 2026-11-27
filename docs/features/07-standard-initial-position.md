@@ -4,7 +4,7 @@
 
 **Priority:** 7
 
-**Dependencies:** [05 — Position state and validation](05-position-state-and-validation.md), [06 — Deterministic position hash](06-position-hash.md)
+**Dependencies:** [05 — Position state and validation](archive/05-position-state-and-validation.md), [06 — Deterministic position hash](06-position-hash.md)
 
 ## Summary
 
