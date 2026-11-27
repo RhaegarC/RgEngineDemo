@@ -4,7 +4,7 @@
 
 **Priority:** 2
 
-**Dependencies:** [01 — Solution and Core test foundation](01-solution-and-core-test-foundation.md)
+**Dependencies:** [01 — Solution and Core test foundation](archive/01-solution-and-core-test-foundation.md)
 
 ## Summary
 
