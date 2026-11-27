@@ -36,7 +36,7 @@ Recommended initial option:
 
 | Option | Type | Initial behavior |
 |---|---|---|
-| `Hash` | spin, megabytes | Set transposition-table capacity within documented safe minimum/maximum bounds; default to a modest fixed size such as 16 MB. A change takes effect without corrupting an active search. |
+| `Hash` | spin, megabytes | Set transposition-table capacity within documented safe minimum/maximum bounds; default to a modest fixed size such as 16 MB. If a search is active, cancel and join it before applying the resize; never resize the table while search can access it. |
 
 Advertise only options the engine actually honors. A fixed single search thread does not need a `Threads` option. Add `Clear Hash` only when the table exists and the command works.
 
@@ -48,7 +48,7 @@ Unknown `go` tokens must not be reinterpreted as valid limits. For malformed or 
 
 - Permit at most one active search.
 - The command loop remains able to process `isready`, `stop`, and `quit` during search. Use cancellation signaling and a clear completion path; do not block the input reader on the search task.
-- Before a new `position`, `ucinewgame`, or replacement `go` mutates search-owned state, cancel and join the previous search. The implementation must define whether replacement commands also emit the prior `bestmove`; never emit duplicate best moves.
+- Before a new `position`, `ucinewgame`, replacement `go`, or a `setoption` that changes search-owned state (such as resizing `Hash`) mutates that state, cancel and join the previous search. The implementation must define whether replacement commands also emit the prior `bestmove`; never emit duplicate best moves.
 - `stop` is idempotent. If no search is active, it has no effect.
 - When a finite limit expires, return the best move from the most recently completed iteration. If no iteration completed, return the best legal fallback found before cancellation.
 - If the root position has no legal move, emit `bestmove 0000`.
