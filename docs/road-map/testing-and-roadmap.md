@@ -44,11 +44,10 @@ Do not advance a milestone while its gate fails:
 
 The first implementation sprint is decomposed into ordered, independently testable feature specs in the [Sprint 1 mission](../features/00-mission-01-sprint.md). Use that mission's dependency table and each feature's acceptance tests as the execution source of truth.
 
-### Milestone 0 — project foundation
+### Milestone 0 — project foundation (complete)
 
-- Evolve or replace `src/EngineDemo` with the solution at `src/EngineDemo.slnx`.
-- Establish production projects and all test projects beneath `src/`; keep source, tests, and optional benchmarks within that tree.
-- Acceptance: clean build and test commands; no engine behavior claimed yet.
+- Completed: created `src/EngineDemo.slnx` with the Core library, UCI-host scaffold, and Core test project; all application and test projects remain under `src/`.
+- Acceptance verified: the solution builds cleanly and `dotnet test` completes, building Core.Tests; no tests are defined yet because this feature introduces no behavior. No chess behavior is claimed yet; behavior tests begin with the next feature.
 
 ### Milestone 1 — board and notation
 
