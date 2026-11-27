@@ -1,6 +1,6 @@
 # Feature 08 — FEN parsing
 
-**Status:** Planned
+**Status:** Complete
 
 **Priority:** 8
 
@@ -16,19 +16,25 @@ As a Core caller, I want to load a position from FEN, so that tests and future U
 
 ## Acceptance criteria
 
-- [ ] Exactly six whitespace-separated fields are required.
-- [ ] Piece placement has exactly eight ranks, each expanding to exactly eight squares, with only recognized piece symbols and digits 1–8.
-- [ ] Side to move is exactly `w` or `b`.
-- [ ] Castling rights accept only unique `KQkq` symbols or `-`.
-- [ ] En-passant is `-` or a valid coordinate consistent with the FEN side-to-move rank convention.
-- [ ] Halfmove clock parses as a non-negative integer; fullmove number parses as an integer of at least one.
-- [ ] Structural position invariants are enforced; malformed input is never silently replaced or normalized.
-- [ ] Errors identify the invalid field or structural condition sufficiently for a caller to report it.
-- [ ] A valid parsed position has correct occupancy and a deterministic position key.
+- [x] Exactly six whitespace-separated fields are required.
+- [x] Piece placement has exactly eight ranks, each expanding to exactly eight squares, with only recognized piece symbols and digits 1–8.
+- [x] Side to move is exactly `w` or `b`.
+- [x] Castling rights accept only unique `KQkq` symbols or `-`.
+- [x] En-passant is `-` or a valid coordinate consistent with the FEN side-to-move rank convention.
+- [x] Halfmove clock parses as a non-negative integer; fullmove number parses as an integer of at least one.
+- [x] Structural position invariants are enforced; malformed input is never silently replaced or normalized.
+- [x] Errors identify the invalid field or structural condition sufficiently for a caller to report it.
+- [x] A valid parsed position has correct occupancy and a deterministic position key.
+
+## Verification
+
+- `dotnet test src/EngineDemo.slnx --no-restore --filter FullyQualifiedName~FenParser` — 32 passed.
+- `dotnet build src/EngineDemo.slnx` — succeeded with 0 warnings and 0 errors.
+- `dotnet test src/EngineDemo.slnx --no-restore` — 108 passed, 0 skipped.
 
 ## Tests (TDD)
 
-Add Core.Tests cases for the initial-position FEN, a valid sparse position, each metadata field, malformed rank widths/counts, invalid symbols/side/castling/en-passant/counters, and missing or duplicate kings. Assert both the error result and useful field context for invalid inputs.
+Core.Tests cover the initial-position FEN, a valid sparse position, both en-passant rank conventions, each metadata field, malformed rank widths/counts, invalid symbols/side/castling/en-passant/counters, and missing or duplicate kings. Invalid-input tests assert useful field context.
 
 Run:
 
