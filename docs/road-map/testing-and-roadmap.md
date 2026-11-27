@@ -20,7 +20,7 @@ Use perft fixtures with exact counts and divide output. Cover checks, pins, cast
 
 ### Search tests
 
-Use small tactical positions with known legal best-move sets rather than assuming one exact move where several are equal. Test mate/stalemate scores, claimable game-history draws separately from search-cycle repetition, halfmove-clock-sensitive transposition-table reuse, mate-distance preference, transposition-table bound behavior, cancellation, and fallback to the last completed iteration or legal root move. Make test positions and limits deterministic.
+Use small tactical positions with known legal best-move sets rather than assuming one exact move where several are equal. Test checkmate precedence when halfmove/repetition thresholds are also met, automatic 75-move/fivefold draws when implemented, stalemate versus draw-threshold classification, claimable game-history draws separately from search-cycle repetition, halfmove-clock-sensitive transposition-table reuse, mate-distance preference, transposition-table bound behavior, cancellation, and fallback to the last completed iteration or legal root move. Make test positions and limits deterministic.
 
 ### UCI integration tests
 

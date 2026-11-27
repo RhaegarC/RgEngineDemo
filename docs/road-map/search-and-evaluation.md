@@ -39,7 +39,7 @@ Keep enhancements individually measurable and easy to disable for comparison. Do
 
 Use a documented integer score unit, preferably centipawns, and mate scores near a reserved upper bound. Adjust mate scores by ply when storing/probing the transposition table so the preference for faster wins and slower losses remains stable across root depths.
 
-At each node, detect no-legal-move states: checkmate is a loss for the side to move; stalemate is a draw. Apply the documented repetition, fifty-move, and insufficient-material handling from [chess rules](chess-rules-and-move-generation.md). Check terminal and path-dependent draw conditions before accepting a transposition-table score cutoff.
+At each node, use the terminal-resolution order in [chess rules](chess-rules-and-move-generation.md): checkmate first (including when a draw threshold is also met), then recognized draw conditions, then stalemate, otherwise continue search. Claimable threefold/fifty-move conditions may be treated as draws according to the engine policy; automatic fivefold/75-move rules apply only when implemented. Do not let a transposition-table cutoff bypass terminal or path-dependent draw checks.
 
 - **Search-cycle repetition:** A second occurrence on the active search path may be scored as a draw to break search cycles. This is a search heuristic, distinct from a claimable threefold draw in game history. Do not store path-dependent repetition scores in the transposition table.
 

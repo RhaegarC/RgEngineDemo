@@ -66,7 +66,18 @@ For each move, update piece bitboards, cached occupancies, side to move, castlin
 
 ## Draw handling
 
-Maintain position keys across the game/search path to detect repetition. Repetition identity must distinguish an en-passant right only when a legal en-passant capture is available; if the transposition-table key conservatively distinguishes additional en-passant states, maintain a normalized repetition key or compare legal-move availability for repetition checks. Recognize the halfmove clock and repetition history during search. Treat claimable threefold repetition and the fifty-move rule as draws for engine search when the position qualifies, while documenting that a UCI engine does not itself execute a player's formal claim. A twofold occurrence within the active search path may be used as a cycle-avoidance heuristic, but it is distinct from game-history draw adjudication and its path-dependent score must not be stored in the transposition table. Transposition-table score reuse must account for the halfmove-clock context because it affects fifty-move draw scores even though it is not part of the base position key. If automatic seventy-five-move or fivefold rules are implemented, ensure checkmate takes precedence where required by chess rules. Insufficient-material handling should be explicit and covered by tests, not inferred from a simplistic material total.
+Maintain position keys across the game/search path to detect repetition. Repetition identity must distinguish an en-passant right only when a legal en-passant capture is available; if the transposition-table key conservatively distinguishes additional en-passant states, maintain a normalized repetition key or compare legal-move availability for repetition checks. Recognize the halfmove clock and repetition history during search. Treat claimable threefold repetition and the fifty-move rule as draws for engine search when the position qualifies, while documenting that a UCI engine does not itself execute a player's formal claim. A twofold occurrence within the active search path may be used as a cycle-avoidance heuristic, but it is distinct from game-history draw adjudication and its path-dependent score must not be stored in the transposition table. Transposition-table score reuse must account for the halfmove-clock context because it affects fifty-move draw scores even though it is not part of the base position key.
+
+Resolve terminal states in this order:
+
+1. If the side to move is in check and has no legal move, score checkmate. Checkmate takes precedence even when a draw threshold is also reached, including the 75-move or fivefold automatic-draw thresholds.
+2. Apply recognized draw conditions: claimable threefold repetition and the fifty-move rule (which this engine treats as draws in search), automatic fivefold repetition, the automatic 75-move rule, and insufficient material. The automatic thresholds are five occurrences of the same position and 150 halfmoves without a pawn move or capture. Under FIDE Laws of Chess Articles 9.6.1–9.6.2, a checkmating move takes precedence over these automatic draws.
+3. If no draw condition applies and the side to move has no legal move while not in check, score stalemate.
+4. Otherwise, search continues normally.
+
+This order makes the result deterministic when a draw threshold coincides with checkmate or stalemate: checkmate wins precedence; otherwise a qualifying draw is scored before classifying a no-legal-move position as stalemate.
+
+If automatic seventy-five-move or fivefold rules are not implemented yet, do not claim support for them. Insufficient-material handling should be explicit and covered by tests, not inferred from a simplistic material total.
 
 ## Perft correctness gates
 
