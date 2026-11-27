@@ -16,6 +16,12 @@ public enum PieceType : byte
     King
 }
 
+/// <summary>
+/// A chess piece with a color and type.
+/// </summary>
+/// <remarks>
+/// The default value is a white pawn. Use <c>Piece?</c> when absence must be represented.
+/// </remarks>
 public readonly record struct Piece
 {
     public Piece(Color color, PieceType type)
