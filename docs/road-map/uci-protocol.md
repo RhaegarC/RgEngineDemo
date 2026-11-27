@@ -40,6 +40,8 @@ Recommended initial option:
 
 Advertise only options the engine actually honors. A fixed single search thread does not need a `Threads` option. Add `Clear Hash` only when the table exists and the command works.
 
+Enforce a requested `nodes` limit at node boundaries without intentional overshoot. Check wall-clock deadlines and cancellation at documented bounded intervals; because a deadline can expire between checks, reserve time for protocol/scheduler overhead and test the maximum observed response delay. Do not promise that `movetime` is an exact wall-clock cutoff.
+
 Unknown `go` tokens must not be reinterpreted as valid limits. For malformed or conflicting limits, report the issue to stderr and reject the command; never start an unbounded search or substitute a success-shaped fallback.
 
 ## Search lifecycle and concurrency

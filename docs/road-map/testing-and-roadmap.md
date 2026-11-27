@@ -20,7 +20,7 @@ Use perft fixtures with exact counts and divide output. Cover checks, pins, cast
 
 ### Search tests
 
-Use small tactical positions with known legal best-move sets rather than assuming one exact move where several are equal. Test mate/stalemate scores, draw recognition, mate-distance preference, transposition-table bound behavior, cancellation, and fallback to the last completed iteration. Make test positions and limits deterministic.
+Use small tactical positions with known legal best-move sets rather than assuming one exact move where several are equal. Test mate/stalemate scores, claimable game-history draws separately from search-cycle repetition, halfmove-clock-sensitive transposition-table reuse, mate-distance preference, transposition-table bound behavior, cancellation, and fallback to the last completed iteration or legal root move. Make test positions and limits deterministic.
 
 ### UCI integration tests
 
@@ -37,7 +37,7 @@ Do not advance a milestone while its gate fails:
 1. **Position model:** valid FEN round-trips; malformed FEN fails explicitly; make/unmake restores all state and hash.
 2. **Rules:** initial position perft matches 20, 400, 8,902, and 197,281 through depth 4; Kiwipete matches 48, 2,039, and 97,862 through depth 3; targeted special-move cases pass.
 3. **UCI:** handshake is exact; stdout is protocol-clean; ready/stop/quit remain responsive; a search emits at most one legal best move.
-4. **Search:** terminal positions, score perspective, cancellation, and time limits behave as specified; no illegal root move is returned.
+4. **Search:** terminal positions, score perspective, draw-context handling, cancellation, depth/node/time limits, and fallback behavior match the search contract; no illegal root move is returned.
 5. **Release:** documented build/test commands work from a clean checkout, and no benchmark is presented as an Elo guarantee.
 
 ## Development roadmap
@@ -77,7 +77,7 @@ The first implementation sprint is decomposed into ordered, independently testab
 
 ## Benchmark practice
 
-Separate correctness tests from performance measurements. Use a fixed set of positions and limits; warm up the .NET runtime consistently; repeat runs and report median/variation. Record build configuration, runtime version, CPU, commit, hash size, limit type, node count, elapsed time, and whether the transposition table was cleared. Compare equivalent work (same positions and search depth/nodes) as well as time-limited throughput.
+Separate correctness tests from performance measurements. Use a fixed set of positions and limits; warm up the .NET runtime consistently; repeat runs and report median/variation. Record build configuration, runtime version, CPU, commit, hash size, limit type, node count, elapsed time, allocation count/bytes, and whether the transposition table was cleared. Measure steady-state search allocations separately from one-time initialization and result/reporting allocations. Compare equivalent work (same positions and search depth/nodes) as well as time-limited throughput; retain a simpler implementation unless a proposed optimization demonstrates a repeatable benefit without weakening correctness.
 
 Never use an unrepeatable GUI impression as a performance claim. Never loosen perft or protocol assertions to make a benchmark pass.
 

@@ -8,7 +8,7 @@
 
 ## Summary
 
-Add a deterministic Zobrist position key over the complete state represented by `Position`. This sprint computes keys for constructed positions; move-time incremental updates are deferred until moves are introduced.
+Add a deterministic Zobrist base position key over the board state represented by `Position`. This sprint computes keys for constructed positions; move-time incremental updates are deferred until moves are introduced. The base key does not encode move counters or repetition history; later search transposition-table score reuse must account for the halfmove clock separately.
 
 ## User story
 
@@ -18,6 +18,7 @@ As a Core caller, I want equal positions to produce stable keys and distinct sta
 
 - [ ] Zobrist values are generated from a fixed, documented seed and are stable across process runs and runtime versions.
 - [ ] The key includes piece placement, side to move, castling rights, and en-passant state.
+- [ ] Halfmove/fullmove counters and repetition history do not alter the base position key; later transposition-table score reuse handles the halfmove clock separately.
 - [ ] Equal positions produce equal keys independent of construction path.
 - [ ] Changing any represented hash-relevant state changes the key in focused tests.
 - [ ] Position construction/parsing computes the key without mutating position state.

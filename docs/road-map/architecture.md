@@ -38,6 +38,8 @@ The current `src/EngineDemo/EngineDemo.slnx` and `EngineDemo.csproj` are an init
 
 Use `EngineDemo` as the C# root namespace, even where assembly, project, and product names use `RgChess`. Set `<RootNamespace>EngineDemo</RootNamespace>` explicitly in each project file rather than relying on a project name to determine the namespace.
 
+For example, code in the `RgChess.Core` project should declare `namespace EngineDemo.Core;` (or a sub-namespace such as `EngineDemo.Core.Board`). Names such as `RgChess.Core` in the proposed layout identify projects, not C# namespaces.
+
 Use descriptive sub-namespaces for project boundaries and modules:
 
 | Project | Namespace examples |
