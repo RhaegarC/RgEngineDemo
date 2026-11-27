@@ -10,18 +10,22 @@
 
 Complete the standard-chess Core rules layer on top of Sprint 1's position and FEN foundation. At the end of this sprint, callers can detect attacks, generate every legal move, apply and undo moves exactly, count legal positions with perft, and classify the defined draw conditions.
 
-## Subtasks
+## Subtask sequence
 
-- [ ] Define compact `Move` and complete `UndoState` value types, including promotion and special-move information.
-- [ ] Implement portable attack masks and square-attacked queries for every piece type, including blocker handling and attacks by pinned pieces.
-- [ ] Add bit scans/popcounts using `System.Numerics.BitOperations` and a flat-array Magic Bitboard baseline for sliding attacks.
-- [ ] Implement make/unmake for quiet moves and captures, restoring all piece masks, occupancies, side, rights, en-passant state, clocks, history, and hash.
-- [ ] Generate pseudo-legal pawn, knight, bishop, rook, queen, and king moves.
-- [ ] Implement castling, en-passant, all promotions and promotion captures, with exact king-safety rules.
-- [ ] Filter pseudo-legal candidates into legal moves, covering check, pins, double check, king moves, and attacked castling transit squares.
-- [ ] Parse and format legal UCI coordinate moves, including lowercase promotion suffixes.
-- [ ] Add perft/divide test helpers and pass initial-position and Kiwipete reference counts.
-- [ ] Track normalized repetition identity and implement claimable/automatic draws, insufficient material, and terminal-state precedence.
+Complete the linked subtasks in dependency order. Each spec defines its own scope and acceptance checks; the mission acceptance criteria remain the overall sprint gate.
+
+| Subtask | Scope | Depends on | Status |
+|---|---|---|---|
+| [10 — Attack generation](sprint-02/10-attack-generation.md) | Implement independent attack masks and attacked-square queries. | Sprint 1 | In progress |
+| [11 — Move and undo-state model](sprint-02/11-move-and-undo-state.md) | Define compact moves and complete undo snapshots. | Sprint 1 | Planned |
+| [12 — Ordinary move application](sprint-02/12-ordinary-move-application.md) | Make/unmake ordinary moves and captures with exact state restoration. | 11 | Planned |
+| [13 — Pseudo-legal move generation](sprint-02/13-pseudo-legal-move-generation.md) | Generate ordinary pawn and piece moves. | 10, 11, 12 | Planned |
+| [14 — Legal move filtering](sprint-02/14-legal-move-filtering.md) | Enforce king safety and classify check, mate, and stalemate. | 10, 12, 13 | Planned |
+| [15 — Castling](sprint-02/15-castling.md) | Implement castling eligibility, move application, and restoration. | 12, 14 | Planned |
+| [16 — En passant](sprint-02/16-en-passant.md) | Implement en-passant state, capture, and discovered-check legality. | 12, 14 | Planned |
+| [17 — Promotion](sprint-02/17-promotion.md) | Implement all promotion choices and promotion captures. | 12, 14 | Planned |
+| [18 — UCI move notation and perft](sprint-02/18-uci-move-notation-and-perft.md) | Parse/format legal moves and pass required perft gates. | 14–17 | Planned |
+| [19 — Game history and draw rules](sprint-02/19-game-history-and-draw-rules.md) | Track normalized repetition identity and resolve draw conditions. | 15–18 | Planned |
 
 ## Out of scope
 
